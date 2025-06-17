@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login & Signup Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      width: 48%;
+      padding: 10px;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .tabs button.active {
+      background: #4CAF50;
+      color: white;
+    }
+    form {
+      display: none;
+      flex-direction: column;
+    }
+    form.active {
+      display: flex;
+    }
+    input {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button[type="submit"] {
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="tabs">
+    <button id="login-tab" class="active" onclick="showForm('login')">Login</button>
+    <button id="signup-tab" onclick="showForm('signup')">Signup</button>
+  </div>
+
+  <!-- Login Form -->
+  <form id="login-form" class="active" onsubmit="event.preventDefault(); alert('Login Submitted');">
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Signup Form -->
+  <form id="signup-form" onsubmit="event.preventDefault(); alert('Signup Submitted');">
+    <input type="text" placeholder="Username" required>
+    <input type="email" placeholder="Email" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">Signup</button>
+  </form>
+</div>
+
+<script>
+  function showForm(type) {
+    document.getElementById('login-form').classList.remove('active');
+    document.getElementById('signup-form').classList.remove('active');
+    document.getElementById('login-tab').classList.remove('active');
+    document.getElementById('signup-tab').classList.remove('active');
+
+    if (type === 'login') {
+      document.getElementById('login-form').classList.add('active');
+      document.getElementById('login-tab').classList.add('active');
+    } else {
+      document.getElementById('signup-form').classList.add('active');
+      document.getElementById('signup-tab').classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>
